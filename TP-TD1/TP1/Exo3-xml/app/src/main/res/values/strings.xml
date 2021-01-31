@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP1Exo3XML</string>
+    <string name="number">5:Numéro</string>
+    <string name="name">1:Prénom</string>
+    <string name="surname">2:Nom</string>
+    <string name="domain">4:Domaine de compétence</string>
+    <string name="button">Valider</string>
+    <string name="age">3:Age</string>
+</resources>

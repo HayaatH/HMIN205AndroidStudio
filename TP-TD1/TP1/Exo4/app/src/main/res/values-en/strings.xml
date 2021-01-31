@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP1Exo4</string>
+    <string name="number">5:Number</string>
+    <string name="name">1:Name</string>
+    <string name="surname">2:Surname</string>
+    <string name="domain">4:Domain of profiency</string>
+    <string name="button">Submit</string>
+    <string name="age">3:Age</string>
+</resources>
