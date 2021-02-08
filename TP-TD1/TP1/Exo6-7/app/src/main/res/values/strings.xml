@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TP1 exo6 et exo7</string>
+    <string name="number">5:Numéro</string>
+    <string name="name">1:Prénom</string>
+    <string name="surname">2:Nom</string>
+    <string name="domain">4:Domaine de compétence</string>
+    <string name="button">Valider</string>
+    <string name="age">3:Age</string>
+    <string name="balerty">Oui</string>
+    <string name="balertn">Non</string>
+    <string name="intro">Bienvenu !</string>
+    <string name="ret">Retour</string>
+    <string name="call">Call</string>
+</resources>
