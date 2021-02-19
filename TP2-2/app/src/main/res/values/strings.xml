@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EXO3456</string>
+    <string name="veuillez_choisir_quel_activit_vous_voulez_tester">Veuillez choisir quel activité vous voulez tester</string>
+    <string name="exercice_3">Exercice 3</string>
+    <string name="exercice_4">Exercice 4</string>
+    <string name="exercice_5">Exercice 5</string>
+    <string name="exercice_6">Exercice 6</string>
+</resources>

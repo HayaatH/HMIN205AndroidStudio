@@ -1,0 +1,91 @@
+package com.example.exo3456;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
+public class EXO6  extends AppCompatActivity   {
+
+    // Creating variables for text view,
+    // sensor manager and our sensor.
+    TextView sensorStatusTV;
+    SensorManager sensorManager;
+    Sensor proximitySensor;
+
+    ImageView imageView1 ;
+    ImageView imageView2 ;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.exo_6);
+        sensorStatusTV = findViewById(R.id.prox);
+        imageView1 = (ImageView) findViewById(R.id.imageView);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
+
+        // calling sensor service.
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        // from sensor service we are
+        // calling proximity sensor
+        proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+        // handling the case if the proximity
+        // sensor is not present in users device.
+        if (proximitySensor == null) {
+            Toast.makeText(this, "No proximity sensor found in device.", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            // registering our sensor with sensor manager.
+            sensorManager.registerListener(proximitySensorEventListener,
+                    proximitySensor,
+                    SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    // calling the sensor event class to detect
+    // the change in data when sensor starts working.
+    SensorEventListener proximitySensorEventListener = new SensorEventListener() {
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            // method to check accuracy changed in sensor.
+        }
+
+        @Override
+        public void onSensorChanged(SensorEvent event) {
+            // check if the sensor type is proximity sensor.
+            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                float distance;
+                distance = event.values[0];
+                if (distance < 10) {
+                    // here we are setting our status to our textview..
+                    // if sensor event return 0 then object is closed
+                    // to sensor else object is away from sensor.
+                    imageView2.setVisibility(View.VISIBLE);
+                    imageView1.setVisibility(View.INVISIBLE);
+                    ((TextView)findViewById(R.id.prox)).setText("Proximity: " + distance + "cm : event.values[0] < 10");
+                } else {
+                    imageView2.setVisibility(View.INVISIBLE);
+                    imageView1.setVisibility(View.VISIBLE);
+                    ((TextView)findViewById(R.id.prox)).setText("Proximity: " + distance + "cm : event.values[0] > 10");
+                }
+            }
+        }
+    };
+}
