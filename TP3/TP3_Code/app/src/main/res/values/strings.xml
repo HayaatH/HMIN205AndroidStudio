@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TP3</string>
+    <string name="Name">Prénom</string>
+    <string name="Surname">Nom</string>
+    <string name="addAccount_title">Veuillez vous inscrire</string>
+    <string name="main_title">Que voulez-vous faire ?</string>
+    <string name="activity_submit">Valider</string>
+</resources>
